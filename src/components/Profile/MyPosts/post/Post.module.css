@@ -3,5 +3,7 @@
 }
 
 .item img {
-  width: 50px;
+  width: 80px;
+  border-radius: 15px;
+  border: 2px solid gold;
 }
