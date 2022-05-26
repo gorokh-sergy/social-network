@@ -6,10 +6,18 @@ const Navbar = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.item}>
-        <NavLink to='/profile'>Profile</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? styles.active : undefined)}
+          to='/profile'>
+          Profile
+        </NavLink>
       </div>
-      <div className={`${styles.item} ${styles.active}`}>
-        <NavLink to='/dialogs'>Messages</NavLink>
+      <div className={styles.item}>
+        <NavLink
+          className={({ isActive }) => (isActive ? styles.active : undefined)}
+          to='/dialogs'>
+          Messages
+        </NavLink>
       </div>
       <div className={styles.item}>
         <a href='#s'>News</a>
