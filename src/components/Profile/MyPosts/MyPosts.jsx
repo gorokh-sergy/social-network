@@ -8,7 +8,6 @@ const MyPosts = (props) => {
   ))
 
   const newPostElement = createRef()
-
   const addPost = () => {
     props.addPost()
   }
