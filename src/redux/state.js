@@ -1,3 +1,7 @@
+let rerenderEntireTree = () => {
+  console.log('reRender was not reRenderet')
+}
+
 const state = {
   profilePage: {
 
@@ -5,6 +9,8 @@ const state = {
       { id: 1, message: 'Hi, how are you', likesCount: 12 },
       { id: 2, message: `It's my first post?`, likesCount: 42 },
     ],
+
+    newPostText: 'it-ra-ta-ta'
   },
 
   dialogsPage: {
@@ -28,16 +34,25 @@ const state = {
   },
 
 }
+window.state = state
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
 
   const newPost = {
     id: 3,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0
 
   }
   state.profilePage.posts.push(newPost)
+  state.profilePage.newPostText = ''
+  rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText
+  rerenderEntireTree(state)
+
 }
 
 export default state
