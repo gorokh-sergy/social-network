@@ -1,5 +1,5 @@
 let rerenderEntireTree = () => {
-  console.log('reRender was not reRenderet')
+  console.log('reRender was not reRendered')
 }
 
 const state = {
@@ -53,6 +53,10 @@ export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText
   rerenderEntireTree(state)
 
+}
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer
 }
 
 export default state
