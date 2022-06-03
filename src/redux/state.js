@@ -16,7 +16,6 @@ let store = {
 
       newPostText: 'it-ra-ta-ta'
     },
-
     dialogsPage: {
 
       dialogs: [
@@ -38,6 +37,9 @@ let store = {
 
       newMessageBody: ''
     },
+    sidebar: {
+
+    }
   },
   _callSubscriber() {
     console.log('reRender was not reRendered')
@@ -64,10 +66,10 @@ let store = {
       this._state.profilePage.newPostText = action.newText
       this._callSubscriber(this._state)
     } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.dialogsPage.newMessageBody = action.body
+      this._state.dialogsPage.newMessageBody = action.newMessageBody
       this._callSubscriber(this._state)
     } else if (action.type === SEND_MESSAGE) {
-      const body = this._state.dialogsPage.newMessageBody
+      let body = this._state.dialogsPage.newMessageBody
       this._state.dialogsPage.newMessageBody = ''
       this._state.dialogsPage.messages.push({ id: 6, message: body })
 
@@ -81,9 +83,13 @@ export const updateNewPostTextActionCreator = (text) => ({
 })
 
 export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
-export const updateNewMessageBodyCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_BODY, newMessageBody: text
-})
+export const updateNewMessageBodyCreator = (text) => {
+
+  return {
+
+    type: UPDATE_NEW_MESSAGE_BODY, newMessageBody: text
+  }
+}
 
 window.store = store
 
