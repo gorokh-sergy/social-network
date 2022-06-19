@@ -1,10 +1,11 @@
 import React, { createRef } from 'react'
+import store from '../../../redux/reduxStore'
 import styles from './MyPosts.module.css'
 import Post from './post/Post'
 
 const MyPosts = (props) => {
   const posts = props.posts.map((post) => (
-    <Post message={post.message} likesCount={post.likesCount} />
+    <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ))
 
   const newPostElement = createRef()
