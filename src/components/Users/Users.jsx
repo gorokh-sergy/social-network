@@ -1,34 +1,15 @@
+import * as axios from 'axios'
 import react from 'react'
 import styles from './Users.module.css'
+import userPhoto from '../../assets/images/user.png'
 
 const Users = (props) => {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        fullName: 'Dmitry',
-        status: `I'm a boss`,
-        location: { country: 'Belarus', city: 'Minsk' },
-        followed: true,
-        avatarUrl: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
-      },
-      {
-        id: 2,
-        fullName: 'Sergey',
-        status: `I'm a boss`,
-        location: { country: 'Russia', city: 'Moskow' },
-        followed: true,
-        avatarUrl: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
-      },
-      {
-        id: 3,
-        fullName: 'Alekzander',
-        status: `I'm a boss`,
-        location: { country: 'Ukrain', city: 'Kiev' },
-        followed: false,
-        avatarUrl: 'https://тайна-вашего-имени.рф/img/imena/dmitriy.jpg',
-      },
-    ])
+    axios
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .then((response) => {
+        props.setUsers([...response.data.items])
+      })
   }
 
   return (
@@ -38,7 +19,7 @@ const Users = (props) => {
           <span>
             <div>
               <img
-                src={usr.avatarUrl}
+                src={usr.photos.small ? usr.photos.small : userPhoto}
                 className={styles.userPhoto}
                 alt='avatar'
               />
@@ -63,12 +44,12 @@ const Users = (props) => {
           </span>
           <span>
             <span>
-              <div>{usr.fullName}</div>
+              <div>{usr.name}</div>
               <div>{usr.status}</div>
             </span>
             <span>
-              <div>{usr.location.city}</div>
-              <div>{usr.location.country}</div>
+              <div>{'usr.location.city'}</div>
+              <div>{'usr.location.country'}</div>
             </span>
           </span>
         </div>
