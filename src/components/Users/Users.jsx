@@ -19,7 +19,7 @@ const Users = (props) => {
               key={page}
               className={props.currentPage === page ? styles.selectedPage : ''}
               onClick={(e) => {
-                onPageChanged(page)
+                props.onPageChanged(page)
               }}>
               {` ${page} `}
             </span>
