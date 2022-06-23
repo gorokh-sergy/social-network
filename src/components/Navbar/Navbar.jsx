@@ -20,8 +20,16 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className={styles.item}>
+        <NavLink
+          className={({ isActive }) => (isActive ? styles.active : undefined)}
+          to='/users'>
+          Users
+        </NavLink>
+      </div>
+      <div className={styles.item}>
         <a href='#s'>News</a>
       </div>
+
       <div className={styles.item}>
         <a href='#s'>Music</a>
       </div>
