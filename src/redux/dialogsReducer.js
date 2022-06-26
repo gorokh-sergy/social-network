@@ -21,7 +21,6 @@ let initialState = {
   newMessageBody: '',
   initId: 5
 }
-let stateCopy
 
 const dialogsReducer = (state = initialState, action) => {
 

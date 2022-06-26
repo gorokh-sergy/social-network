@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {
-  followAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
-  setUsersAC,
-  toggleIsLoadingAC,
-  unFollowAC,
+  follow,
+  setCurrentPage,
+  setTotalUsersCount,
+  setUsers,
+  toggleIsLoading,
+  unFollow,
 } from '../../redux/usersReducer'
 import * as axios from 'axios'
 import Users from './Users'
@@ -67,27 +67,34 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId))
-    },
-    unFollow: (userId) => {
-      dispatch(unFollowAC(userId))
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users))
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber))
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount))
-    },
-    toggleIsLoading: (isLoading) => {
-      dispatch(toggleIsLoadingAC(isLoading))
-    },
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId))
+//     },
+//     unFollow: (userId) => {
+//       dispatch(unFollowAC(userId))
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users))
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber))
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount))
+//     },
+//     toggleIsLoading: (isLoading) => {
+//       dispatch(toggleIsLoadingAC(isLoading))
+//     },
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {
+  follow,
+  unFollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsLoading,
+})(UsersContainer)

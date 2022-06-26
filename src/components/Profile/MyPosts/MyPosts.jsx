@@ -1,5 +1,4 @@
 import React, { createRef } from 'react'
-import store from '../../../redux/reduxStore'
 import styles from './MyPosts.module.css'
 import Post from './post/Post'
 

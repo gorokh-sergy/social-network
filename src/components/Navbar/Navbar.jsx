@@ -7,21 +7,21 @@ const Navbar = () => {
     <nav className={styles.nav}>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => (isActive ? styles.active : undefined)}
+          className={(isActive) => (isActive ? styles.active : undefined)}
           to='/profile'>
           Profile
         </NavLink>
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => (isActive ? styles.active : undefined)}
+          className={(isActive) => (isActive ? styles.active : undefined)}
           to='/dialogs'>
           Messages
         </NavLink>
       </div>
       <div className={styles.item}>
         <NavLink
-          className={({ isActive }) => (isActive ? styles.active : undefined)}
+          className={(isActive) => (isActive ? styles.active : undefined)}
           to='/users'>
           Users
         </NavLink>
